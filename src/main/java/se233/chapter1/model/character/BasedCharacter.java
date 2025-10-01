@@ -27,6 +27,22 @@ public class BasedCharacter {
         this.defense = this.basedDef + armor.getDefense();
         this.resistance = this.basedRes + armor.getResistance();
     }
+
+    public Weapon unequipWeapon() {
+        Weapon old = this.weapon;
+        this.weapon = null;
+        this.power = this.basedPow;
+        return old;
+    }
+
+    public Armor unequipArmor() {
+        Armor old = this.armor;
+        this.armor = null;
+        this.defense = this.basedDef;
+        this.resistance = this.basedRes;
+        return old;
+    }
+
     @Override
     public String toString(){return name;}
     public DamageType getType(){return type;}
